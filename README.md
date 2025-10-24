@@ -29,10 +29,11 @@ _NB: I had to download and install ffmpeg in order to use pydub, though this was
 The output should be segmented audio files in a folder called processed_audio, and an SQL table populated with metadata for each of the segments. 
 
 Some design notes:
-- I found that the hardest part was definitely getting the right parameters for filtering out music, without also being sensitive to sound like birdsong and low background noises. As such the parameters I specify might be slightly overfit to these files, and it might be that in other usecases you would have to tinker with these. Overall, I found these values to be the best balance between filtering out non-speech audio and yielding a good proportion of quality sound files.
+- I found that the hardest part was definitely getting the right parameters for filtering out music, without also being sensitive to sound like birdsong and low background noises. As such the parameters I specify might be slightly overfit to the specific files I was using, and it might be that in other usecases you would have to tinker with these. Overall, I found these values to be the best balance between filtering out non-speech audio and yielding a good proportion of quality sound files.
 - Audio and text quality filters were separated out and placed either side of the ASR function to save compute on running the model.
 - Some quality metrics were added to the metadata in case these need to be used downstream by AI engineers. For instance, if overlapping data is deemed useless then those files can easily be eliminated from the dataset.
 
 I really enjoyed making this, especially learning about the libraries and models required - I had no idea you could do all these things with audio files in Python!
+
 
 🖊️ Oscar Hill, completed 22-10-2025
